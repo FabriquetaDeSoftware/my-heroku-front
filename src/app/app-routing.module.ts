@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainDashComponent } from './components/main-dash/main-dash.component';
+import { MainDashComponent } from './pages/main-dash/main-dash.component';
 
 const routes: Routes = [
   {
