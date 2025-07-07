@@ -5,8 +5,9 @@
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
     >
       @for (item of cards; track item.id) {
+      <!-- Renderização de Cards -->
       <div
-        class="max-w-sm w-full rounded-lg overflow-hidden shadow-xl bg-[#1A1A1A] p-6 border border-gray-200 transform hover:scale-105 transition-all duration-300 ease-in-out"
+        class="max-w-sm w-full rounded-lg overflow-hidden shadow-xl bg-[#1A1A1A] p-6 border border-gray-200 transform hover:scale-105 transition-all duration-100 ease-in-out"
       >
         <h2
           class="text-2xl font-semibold text-white mb-4 flex items-center space-x-2"
@@ -44,10 +45,10 @@
             {{ item.memoryPercent }}
           </p>
         </div>
-        <!-- create a stoped button and a pause button and a view logs button -->
-        <div class="mt-4 flex space-x-2">
+        <div class="mt-4 flex justify-center items-center gap-2">
+          <!-- Botão de Parar -->
           <button
-            class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+            class="bg-red-700 hover:bg-red-800 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50 grow flex justify-center items-center hover:scale-110 transition-all duration-100 ease-in-out cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +56,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="size-6"
+              class="w-5 h-5"
             >
               <path
                 stroke-linecap="round"
@@ -64,8 +65,10 @@
               />
             </svg>
           </button>
+
+          <!-- Botão de Pausar -->
           <button
-            class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+            class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 grow flex justify-center items-center hover:scale-110 transition-all duration-100 ease-in-out cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +76,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="size-6"
+              class="w-5 h-5"
             >
               <path
                 stroke-linecap="round"
@@ -82,8 +85,10 @@
               />
             </svg>
           </button>
+
+          <!-- Botão de Ver Logs -->
           <button
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 grow flex justify-center items-center hover:scale-110 transition-all duration-100 ease-in-out cursor-pointer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +96,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="size-6"
+              class="w-5 h-5"
             >
               <path
                 stroke-linecap="round"

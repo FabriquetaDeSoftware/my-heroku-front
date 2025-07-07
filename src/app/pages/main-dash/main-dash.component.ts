@@ -44,5 +44,12 @@ export class MainDashComponent {
       memoryUsage: '100MiB / 6.0GiB',
       memoryPercent: '1.5%',
     },
+    {
+      title: 'ngnix-test',
+      id: 'c3f456e7a8b2',
+      cpuUsage: '0.31%',
+      memoryUsage: '300MiB / 6.0GiB',
+      memoryPercent: '1.3%',
+    },
   ];
 }
