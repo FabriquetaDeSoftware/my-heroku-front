@@ -1,1 +1,35 @@
-<p>sign-in works!</p>
+<div
+  class="flex justify-center items-center min-w-screen min-h-screen bg-[#141414]"
+>
+  <div
+    class="rounded-lg overflow-hidden shadow-xl bg-[#1A1A1A] p-6 border border-gray-200 transform hover:scale-105 transition-all duration-100 ease-in-out w-1/6"
+  >
+    <h2 class="text-3xl font-bold text-white mb-6 text-center">Sign In</h2>
+    <form>
+      <div class="mb-4">
+        <label for="email" class="block text-white mb-2">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="w-full p-3 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-300"
+          placeholder="Enter your email"
+        />
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-white mb-2">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="w-full p-3 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-300"
+          placeholder="Enter your password"
+        />
+      </div>
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+      >
+        Sign In
+      </button>
+    </form>
+  </div>
+</div>
