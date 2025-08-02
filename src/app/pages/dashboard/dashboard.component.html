@@ -1,0 +1,53 @@
+<div nz-row [nzGutter]="24">
+  <div nz-col [nzSpan]="6">
+    <nz-card nzTitle="CPU">
+      <div nz-row>
+        <p nz-col [nzSpan]="6" class="text-xl m-0 leading-none">45%</p>
+
+        <div class="grow h-2 mt-2 bg-gray-600 rounded-lg overflow-hidden">
+          <div class="h-full bg-[#60A5FA] rounded-lg" style="width: 45%"></div>
+        </div>
+      </div>
+
+      <span class="text-xs text-slate-500">Uso atual do processador</span>
+    </nz-card>
+  </div>
+
+  <div nz-col [nzSpan]="6">
+    <nz-card nzTitle="Memória">
+      <div nz-row>
+        <p nz-col [nzSpan]="6" class="text-xl m-0 leading-none">45%</p>
+
+        <div class="grow h-2 mt-2 bg-gray-600 rounded-lg overflow-hidden">
+          <div class="h-full bg-[#60A5FA] rounded-lg" style="width: 45%"></div>
+        </div>
+      </div>
+
+      <span class="text-xs text-slate-500">Uso atual da RAM</span>
+    </nz-card>
+  </div>
+
+  <div nz-col [nzSpan]="6">
+    <nz-card nzTitle="Disco">
+      <div nz-row>
+        <p nz-col [nzSpan]="6" class="text-xl m-0 leading-none">45%</p>
+
+        <div class="grow h-2 mt-2 bg-gray-600 rounded-lg overflow-hidden">
+          <div class="h-full bg-[#60A5FA] rounded-lg" style="width: 45%"></div>
+        </div>
+      </div>
+
+      <span class="text-xs text-slate-500">Uso atual do disco</span>
+    </nz-card>
+  </div>
+
+  <div nz-col [nzSpan]="6">
+    <nz-card nzTitle="Uptime">
+      <div nz-row>
+        <p class="text-xl m-0 leading-none">5d 12h 30m</p>
+      </div>
+
+      <span class="text-xs text-slate-500">Tempo ativo do servidor</span>
+    </nz-card>
+  </div>
+</div>
