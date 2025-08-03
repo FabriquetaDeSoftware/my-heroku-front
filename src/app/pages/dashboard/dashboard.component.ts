@@ -6,6 +6,7 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 
 export interface CardInfo {
   title: string;
@@ -24,6 +25,7 @@ export interface CardInfo {
     NzSegmentedModule,
     NzCardModule,
     NzGridModule,
+    NzProgressModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
