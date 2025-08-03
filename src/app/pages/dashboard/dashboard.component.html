@@ -73,18 +73,33 @@
     <ng-template #nzExtraContainersCard>
       <app-container-icon></app-container-icon>
     </ng-template>
-    <nz-card nzTitle="Containers (4)" [nzExtra]="nzExtraContainersCard">
-      <nz-card>
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
-      </nz-card>
 
-      <nz-card>
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
-      </nz-card>
+    <nz-card nzTitle="Containers (4)" [nzExtra]="nzExtraContainersCard">
+      <nz-card-tab>
+        <nz-tabset nzSize="large" [(nzSelectedIndex)]="index">
+          <nz-tab nzTitle="Todos (4)"></nz-tab>
+          <nz-tab nzTitle="Rodando (2)"></nz-tab>
+          <nz-tab nzTitle="Parado (2)"></nz-tab>
+        </nz-tabset>
+      </nz-card-tab>
+
+      <nz-space nzDirection="vertical" nzSize="large" class="w-full">
+        <nz-ribbon nzText="Rodando" nzColor="green" *nzSpaceItem>
+          <nz-card>
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </nz-card>
+        </nz-ribbon>
+
+        <nz-ribbon nzText="Parado" nzColor="red" *nzSpaceItem>
+          <nz-card>
+            <p>Card content</p>
+            <p>Card content</p>
+            <p>Card content</p>
+          </nz-card>
+        </nz-ribbon>
+      </nz-space>
     </nz-card>
   </div>
 </div>
