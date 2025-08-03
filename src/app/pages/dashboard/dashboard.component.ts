@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { CpuIconComponent } from '../../shared/icons/cpu-icon/cpu-icon.component';
+import { MemoryIconComponent } from '../../shared/icons/memory-icon/memory-icon.component';
+import { DiskIconComponent } from '../../shared/icons/disk-icon/disk-icon.component';
+import { UptimeIconComponent } from '../../shared/icons/uptime-icon/uptime-icon.component';
+import { ContainerIconComponent } from '../../shared/icons/container-icon/container-icon.component';
+
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
-import { CpuIconComponent } from '../../shared/icons/cpu-icon/cpu-icon.component';
-import { MemoryIconComponent } from '../../shared/icons/memory-icon/memory-icon.component';
-import { DiskIconComponent } from '../../shared/icons/disk-icon/disk-icon.component';
-import { UptimeIconComponent } from '../../shared/icons/uptime-icon/uptime-icon.component';
 
 export interface CardInfo {
   title: string;
@@ -34,12 +36,16 @@ export interface CardInfo {
     MemoryIconComponent,
     DiskIconComponent,
     UptimeIconComponent,
+    ContainerIconComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
   constructor() {}
+  index1 = 0;
+  index2 = 0;
+
   cards: CardInfo[] = [
     {
       title: 'postgres-test',
