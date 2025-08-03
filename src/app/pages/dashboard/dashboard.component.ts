@@ -7,6 +7,10 @@ import { NzSegmentedModule } from 'ng-zorro-antd/segmented';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { CpuIconComponent } from '../../shared/icons/cpu-icon/cpu-icon.component';
+import { MemoryIconComponent } from '../../shared/icons/memory-icon/memory-icon.component';
+import { DiskIconComponent } from '../../shared/icons/disk-icon/disk-icon.component';
+import { UptimeIconComponent } from '../../shared/icons/uptime-icon/uptime-icon.component';
 
 export interface CardInfo {
   title: string;
@@ -26,6 +30,10 @@ export interface CardInfo {
     NzCardModule,
     NzGridModule,
     NzProgressModule,
+    CpuIconComponent,
+    MemoryIconComponent,
+    DiskIconComponent,
+    UptimeIconComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
