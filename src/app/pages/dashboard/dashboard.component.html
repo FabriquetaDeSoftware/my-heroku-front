@@ -83,23 +83,20 @@
         </nz-tabset>
       </nz-card-tab>
 
-      <nz-space nzDirection="vertical" nzSize="large" class="w-full">
-        <nz-ribbon nzText="Rodando" nzColor="green" *nzSpaceItem>
-          <nz-card>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </nz-card>
-        </nz-ribbon>
-
-        <nz-ribbon nzText="Parado" nzColor="red" *nzSpaceItem>
-          <nz-card>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </nz-card>
-        </nz-ribbon>
-      </nz-space>
+      <div nz-row [nzGutter]="[24, 24]">
+        @for (item of cards; track item.id) {
+        <div nz-col [nzSpan]="8">
+          <nz-ribbon nzText="Rodando" nzColor="green">
+            <nz-card>
+              <p>{{ item.title }}</p>
+              <p>{{ item.cpuUsage }}</p>
+              <p>{{ item.memoryPercent }}</p>
+              <p>{{ item.memoryUsage }}</p>
+            </nz-card>
+          </nz-ribbon>
+        </div>
+        }
+      </div>
     </nz-card>
   </div>
 </div>
