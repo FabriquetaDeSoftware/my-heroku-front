@@ -6,6 +6,10 @@ import { MemoryIconComponent } from '../../shared/icons/memory-icon/memory-icon.
 import { DiskIconComponent } from '../../shared/icons/disk-icon/disk-icon.component';
 import { UptimeIconComponent } from '../../shared/icons/uptime-icon/uptime-icon.component';
 import { ContainerIconComponent } from '../../shared/icons/container-icon/container-icon.component';
+import { DeleteIconComponent } from '../../shared/icons/delete-icon/delete-icon.component';
+import { ViewLogsIconComponent } from '../../shared/icons/view-logs-icon/view-logs-icon.component';
+import { StopIconComponent } from '../../shared/icons/stop-icon/stop-icon.component';
+import { PlayIconComponent } from '../../shared/icons/play-icon/play-icon.component';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
@@ -17,12 +21,18 @@ import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 
+export enum EStatusContainer {
+  RUNNING = 'running',
+  STOPPED = 'stopped',
+}
+
 export interface CardInfo {
   title: string;
   id: string;
   cpuUsage: string;
   memoryUsage: string;
   memoryPercent: string;
+  status: EStatusContainer;
 }
 
 @Component({
@@ -43,6 +53,10 @@ export interface CardInfo {
     NzTabsModule,
     NzSpaceModule,
     NzBadgeModule,
+    DeleteIconComponent,
+    ViewLogsIconComponent,
+    StopIconComponent,
+    PlayIconComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
@@ -51,6 +65,8 @@ export class DashboardComponent {
   constructor() {}
   index = 0;
 
+  protected readonly EStatusContainer = EStatusContainer;
+
   cards: CardInfo[] = [
     {
       title: 'postgres-test',
@@ -58,6 +74,7 @@ export class DashboardComponent {
       cpuUsage: '0.00%',
       memoryUsage: '45.81MiB / 7.602GiB',
       memoryPercent: '0.59%',
+      status: EStatusContainer.RUNNING,
     },
     {
       title: 'mysql-test',
@@ -65,6 +82,7 @@ export class DashboardComponent {
       cpuUsage: '2.12%',
       memoryUsage: '120MiB / 4.0GiB',
       memoryPercent: '3.00%',
+      status: EStatusContainer.RUNNING,
     },
     {
       title: 'redis-test',
@@ -72,6 +90,7 @@ export class DashboardComponent {
       cpuUsage: '0.25%',
       memoryUsage: '50MiB / 2.5GiB',
       memoryPercent: '2.00%',
+      status: EStatusContainer.RUNNING,
     },
     {
       title: 'mongodb-test',
@@ -79,6 +98,7 @@ export class DashboardComponent {
       cpuUsage: '0.15%',
       memoryUsage: '100MiB / 6.0GiB',
       memoryPercent: '1.5%',
+      status: EStatusContainer.STOPPED,
     },
     {
       title: 'ngnix-test',
@@ -86,6 +106,42 @@ export class DashboardComponent {
       cpuUsage: '0.31%',
       memoryUsage: '300MiB / 6.0GiB',
       memoryPercent: '1.3%',
+      status: EStatusContainer.STOPPED,
     },
   ];
+
+  get filteredCards(): CardInfo[] {
+    switch (this.index) {
+      case 1:
+        return this.runningCards;
+      case 2:
+        return this.stoppedCards;
+      default:
+        return this.cards;
+    }
+  }
+
+  get runningCards(): CardInfo[] {
+    return this.cards.filter((c) => c.status === EStatusContainer.RUNNING);
+  }
+  get stoppedCards(): CardInfo[] {
+    return this.cards.filter((c) => c.status === EStatusContainer.STOPPED);
+  }
+
+  get totalCount(): number {
+    return this.cards.length;
+  }
+  get runningCount(): number {
+    return this.runningCards.length;
+  }
+  get stoppedCount(): number {
+    return this.stoppedCards.length;
+  }
+
+  statusLabel(status: EStatusContainer): string {
+    return status === EStatusContainer.RUNNING ? 'Rodando' : 'Parado';
+  }
+  statusColor(status: EStatusContainer): string {
+    return status === EStatusContainer.RUNNING ? 'green' : 'red';
+  }
 }

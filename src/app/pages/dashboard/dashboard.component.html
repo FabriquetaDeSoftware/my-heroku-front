@@ -74,24 +74,80 @@
       <app-container-icon></app-container-icon>
     </ng-template>
 
-    <nz-card nzTitle="Containers (4)" [nzExtra]="nzExtraContainersCard">
+    <nz-card nzTitle="Containers" [nzExtra]="nzExtraContainersCard">
       <nz-card-tab>
         <nz-tabset nzSize="large" [(nzSelectedIndex)]="index">
-          <nz-tab nzTitle="Todos (4)"></nz-tab>
-          <nz-tab nzTitle="Rodando (2)"></nz-tab>
-          <nz-tab nzTitle="Parado (2)"></nz-tab>
+          <nz-tab nzTitle="Todos ({{ totalCount }})"></nz-tab>
+          <nz-tab nzTitle="Rodando ({{ runningCount }})"></nz-tab>
+          <nz-tab nzTitle="Parado ({{ stoppedCount }})"></nz-tab>
         </nz-tabset>
       </nz-card-tab>
 
       <div nz-row [nzGutter]="[24, 24]">
-        @for (item of cards; track item.id) {
+        @for (item of filteredCards; track item.id) {
         <div nz-col [nzSpan]="8">
-          <nz-ribbon nzText="Rodando" nzColor="green">
+          <nz-ribbon
+            [nzText]="statusLabel(item.status)"
+            [nzColor]="statusColor(item.status)"
+          >
             <nz-card>
               <p>{{ item.title }}</p>
               <p>{{ item.cpuUsage }}</p>
               <p>{{ item.memoryPercent }}</p>
               <p>{{ item.memoryUsage }}</p>
+              <div nz-row [nzGutter]="8">
+                @if(item.status === EStatusContainer.RUNNING) {
+                <div nz-col [nzSpan]="8">
+                  <button
+                    nz-button
+                    nzType="primary"
+                    nz-flex
+                    nzJustify="center"
+                    class="w-full !bg-yellow-500 hover:!bg-yellow-400 focus:!bg-yellow-400 !border-0"
+                  >
+                    <app-stop-icon></app-stop-icon>
+                  </button>
+                </div>
+                } @if(item.status === EStatusContainer.STOPPED) {
+                <div nz-col [nzSpan]="8">
+                  <button
+                    nz-button
+                    nzType="primary"
+                    nz-flex
+                    nzJustify="center"
+                    class="w-full !bg-green-500 hover:!bg-green-400 focus:!bg-green-400 !border-0"
+                  >
+                    <app-play-icon></app-play-icon>
+                  </button>
+                </div>
+                }
+
+                <div nz-col [nzSpan]="8">
+                  <button
+                    nz-button
+                    nzType="primary"
+                    nz-flex
+                    nzJustify="center"
+                    class="w-full !bg-blue-500 hover:!bg-blue-400 focus:!bg-blue-400 !border-0"
+                  >
+                    <app-view-logs-icon></app-view-logs-icon>
+                  </button>
+                </div>
+
+                <div nz-col [nzSpan]="8">
+                  <button
+                    nz-button
+                    nzType="primary"
+                    nz-flex
+                    nzJustify="center"
+                    class="w-full !bg-red-500 hover:!bg-red-400 focus:!bg-red-400 !border-0"
+                  >
+                    <app-delete-icon></app-delete-icon>
+                  </button>
+                </div>
+
+                <!-- <app-play-icon stroke="#000000"></app-play-icon> -->
+              </div>
             </nz-card>
           </nz-ribbon>
         </div>
